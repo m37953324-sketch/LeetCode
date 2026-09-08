@@ -38,3 +38,52 @@ class Task21 {
         return dummy.next
     }
 }
+
+private fun listOfNodes(vararg values: Int): ListNode? {
+    val dummy = ListNode(0)
+    var current = dummy
+    for (v in values) {
+        current.next = ListNode(v)
+        current = current.next!!
+    }
+    return dummy.next
+}
+
+private fun nodesToList(node: ListNode?): List<Int> {
+    val result = mutableListOf<Int>()
+    var current = node
+    while (current != null) {
+        result.add(current.`val`)
+        current = current.next
+    }
+    return result
+}
+
+class Task21Test {
+
+    @org.junit.jupiter.api.Test
+    fun `example 1`() {
+        val list1 = listOfNodes(1, 2, 4)
+        val list2 = listOfNodes(1, 3, 4)
+
+        val merged = Task21().mergeTwoLists(list1, list2)
+
+        assert(nodesToList(merged) == listOf(1, 1, 2, 3, 4, 4))
+    }
+
+    @org.junit.jupiter.api.Test
+    fun `example 2`() {
+        val merged = Task21().mergeTwoLists(null, null)
+
+        assert(nodesToList(merged).isEmpty())
+    }
+
+    @org.junit.jupiter.api.Test
+    fun `example 3`() {
+        val list2 = listOfNodes(0)
+
+        val merged = Task21().mergeTwoLists(null, list2)
+
+        assert(nodesToList(merged) == listOf(0))
+    }
+}
