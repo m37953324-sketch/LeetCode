@@ -19,5 +19,5 @@ kotlin {
 }
 
 tasks.test {
-    useJUnitPlatform()
+    useTestNG()
 }

@@ -61,29 +61,29 @@ private fun nodesToList(node: ListNode?): List<Int> {
 
 class Task21Test {
 
-    @org.junit.jupiter.api.Test
+    @org.testng.annotations.Test
     fun `example 1`() {
         val list1 = listOfNodes(1, 2, 4)
         val list2 = listOfNodes(1, 3, 4)
 
         val merged = Task21().mergeTwoLists(list1, list2)
 
-        assert(nodesToList(merged) == listOf(1, 1, 2, 3, 4, 4))
+        org.testng.Assert.assertEquals(nodesToList(merged), listOf(1, 1, 2, 3, 4, 4))
     }
 
-    @org.junit.jupiter.api.Test
+    @org.testng.annotations.Test
     fun `example 2`() {
         val merged = Task21().mergeTwoLists(null, null)
 
-        assert(nodesToList(merged).isEmpty())
+        org.testng.Assert.assertTrue(nodesToList(merged).isEmpty())
     }
 
-    @org.junit.jupiter.api.Test
+    @org.testng.annotations.Test
     fun `example 3`() {
         val list2 = listOfNodes(0)
 
         val merged = Task21().mergeTwoLists(null, list2)
 
-        assert(nodesToList(merged) == listOf(0))
+        org.testng.Assert.assertEquals(nodesToList(merged), listOf(0))
     }
 }
