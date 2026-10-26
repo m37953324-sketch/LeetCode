@@ -1,7 +1,3 @@
-class ListNode(var `val`: Int) {
-    var next: ListNode? = null
-}
-
 class Task21 {
     fun mergeTwoLists(list1: ListNode?, list2: ListNode?): ListNode? {
         val dummy = ListNode(0)
